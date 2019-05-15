@@ -4,6 +4,7 @@ const typeDefs = gql`
   # api entry points
   type Query {
     hello: String
+    dateNow: String
   }
 `;
 
@@ -11,6 +12,9 @@ const resolvers = {
   Query: {
     hello() {
       return "Hello World";
+    },
+    dateNow() {
+      return `${new Date()}`;
     }
   }
 };
