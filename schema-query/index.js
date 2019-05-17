@@ -21,6 +21,11 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
+  User: {
+    salary(user) {
+      return user.user_salary;
+    }
+  },
   Query: {
     hello() {
       return "Hello World";
@@ -34,7 +39,7 @@ const resolvers = {
         name: "Ronaldo",
         email: "ronaldofjc@hotmail.com",
         age: 23,
-        salary: 20.0,
+        user_salary: 20.0,
         vip: true
       };
     }
