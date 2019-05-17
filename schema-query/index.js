@@ -3,6 +3,13 @@ const { ApolloServer, gql } = require("apollo-server");
 const typeDefs = gql`
   scalar Date
 
+  type Product {
+    name: String!
+    price: Float!
+    discount: Float
+    priceWithDiscount: Float
+  }
+
   type User {
     id: ID
     name: String!
@@ -17,10 +24,20 @@ const typeDefs = gql`
     hello: String
     dateNow: Date
     loggedUser: User
+    featuredProduct: Product
   }
 `;
 
 const resolvers = {
+  Product: {
+    priceWithDiscount(product) {
+      if (product.discount) {
+        return product.price * (1 - product.discount);
+      } else {
+        return product.price;
+      }
+    }
+  },
   User: {
     salary(user) {
       return user.user_salary;
@@ -41,6 +58,13 @@ const resolvers = {
         age: 23,
         user_salary: 20.0,
         vip: true
+      };
+    },
+    featuredProduct() {
+      return {
+        name: "Notebook",
+        price: 4890.0,
+        discount: 0.15
       };
     }
   }
