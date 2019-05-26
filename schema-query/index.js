@@ -14,7 +14,7 @@ const users = [
     age: 30
   },
   {
-    id: 1,
+    id: 3,
     name: "Ana",
     email: "ana@hotmail.com",
     age: 40
@@ -32,7 +32,7 @@ const typeDefs = gql`
   }
 
   type User {
-    id: ID
+    id: Int
     name: String!
     email: String!
     age: Int
@@ -48,6 +48,7 @@ const typeDefs = gql`
     featuredProduct: Product
     numbersMegaSena: [Int!]!
     users: [User]
+    user(id: Int): User
   }
 `;
 
@@ -95,6 +96,10 @@ const resolvers = {
     },
     users() {
       return users;
+    },
+    user(_, { id }) {
+      const selected = users.filter(u => u.id === id);
+      return selected ? selected[0] : null;
     }
   }
 };
