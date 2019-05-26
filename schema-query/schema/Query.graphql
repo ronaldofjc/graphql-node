@@ -1,0 +1,12 @@
+# api entry points
+type Query {
+  hello: String
+  dateNow: Date
+  loggedUser: User
+  featuredProduct: Product
+  numbersMegaSena: [Int!]!
+  users: [User]
+  user(id: Int): User
+  profiles: [Profile]
+  profile(id: Int): Profile
+}
