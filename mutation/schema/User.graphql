@@ -1,6 +1,6 @@
 type Profile {
   id: Int
-  nome: String
+  name: String
 }
 
 enum UserStatus {
