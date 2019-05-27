@@ -1,0 +1,7 @@
+# Pontos de entrada da sua API!
+type Query {
+  users: [User]
+  user(id: Int): User
+  profiles: [Profile]
+  profile(id: Int): Profile
+}
