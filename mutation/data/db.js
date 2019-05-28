@@ -7,7 +7,7 @@ function nextId() {
 
 const users = [
   {
-    id: nextId,
+    id: 1,
     name: "João Silva",
     email: "jsilva@zemail.com",
     age: 29,
@@ -15,7 +15,7 @@ const users = [
     status: "ACTIVE"
   },
   {
-    id: nextId,
+    id: 2,
     name: "Rafael Junior",
     email: "rafajun@wemail.com",
     age: 31,
@@ -23,7 +23,7 @@ const users = [
     status: "INACTIVE"
   },
   {
-    id: nextId,
+    id: 3,
     name: "Daniela Smith",
     email: "danismi@umail.com",
     age: 24,

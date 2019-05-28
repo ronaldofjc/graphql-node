@@ -16,5 +16,12 @@ module.exports = {
     };
     users.push(user);
     return user;
+  },
+  removeUser(_, { id }) {
+    const index = users.findIndex(u => u.id === id);
+    if (index < 0) return null;
+    const exclude = users[index];
+    users.splice(index, 1);
+    return exclude;
   }
 };
