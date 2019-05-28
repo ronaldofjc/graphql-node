@@ -1,5 +1,16 @@
 const { users, nextId } = require("../data/db");
 
+function userIndex(filter) {
+  if (!filter) return -1;
+  const { id, email } = filter;
+  if (id) {
+    return users.findIndex(u => u.id === id);
+  } else if (email) {
+    return users.findIndex(u => u.email === email);
+  }
+  return -1;
+}
+
 module.exports = {
   newUser(_, { userData }) {
     const foundEmail = users.some(u => u.email === userData.email);
@@ -17,8 +28,8 @@ module.exports = {
     users.push(user);
     return user;
   },
-  removeUser(_, { id }) {
-    const index = users.findIndex(u => u.id === id);
+  removeUser(_, { filter }) {
+    const index = userIndex(filter);
 
     if (index < 0) return null;
 
