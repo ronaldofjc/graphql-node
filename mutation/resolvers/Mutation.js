@@ -1,8 +1,8 @@
 const { users, nextId } = require("../data/db");
 
 module.exports = {
-  newUser(_, args) {
-    const foundEmail = users.some(u => u.email === args.email);
+  newUser(_, { userData }) {
+    const foundEmail = users.some(u => u.email === userData.email);
 
     if (foundEmail) {
       throw new Error("Email já cadastrado!");
@@ -10,7 +10,7 @@ module.exports = {
 
     const user = {
       id: nextId,
-      ...args,
+      ...userData,
       profile_id: 1,
       status: "ACTIVE"
     };
