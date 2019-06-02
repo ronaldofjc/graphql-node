@@ -38,14 +38,14 @@ module.exports = {
 
     return exclude;
   },
-  updateUser(_, args) {
-    const index = users.findIndex(u => u.id === args.id);
+  updateUser(_, { filter, userData }) {
+    const index = userIndex(filter);
 
     if (index < 0) return null;
 
     const user = {
       ...users[index],
-      ...args
+      ...userData
     };
 
     users.splice(index, 1, user);
