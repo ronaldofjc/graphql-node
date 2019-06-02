@@ -2,4 +2,7 @@ type Mutation {
   newUser(userData: UserInput!): User!
   removeUser(filter: UserFilter!): User
   updateUser(filter: UserFilter!, userData: UserInput!): User
+  newProfile(profileData: ProfileInput!): Profile!
+  removeProfile(filter: ProfileFilter!): Profile
+  updateProfile(filter: ProfileFilter!, profileData: ProfileInput!): Profile
 }

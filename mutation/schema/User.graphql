@@ -28,3 +28,12 @@ input UserFilter {
   id: Int
   email: String
 }
+
+input ProfileInput {
+  name: String
+}
+
+input ProfileFilter {
+  id: Int
+  name: String
+}
