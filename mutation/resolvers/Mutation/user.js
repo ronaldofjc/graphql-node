@@ -1,4 +1,4 @@
-const { users, nextId } = require("../data/db");
+const { users, nextId } = require("../../data/db");
 
 function userIndex(filter) {
   if (!filter) return -1;
